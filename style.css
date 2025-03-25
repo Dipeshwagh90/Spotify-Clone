@@ -52,6 +52,7 @@ body{
     gap: 2px;
     position: absolute;
     bottom: 0;
+    padding: 10px 0;
 }
 .footer a{
     color: grey;
@@ -81,6 +82,7 @@ body{
    padding: 10px;
    border-radius: 5px;
    background-color: #252525;
+   position: relative;
 }
 .card > *{
     padding-top: 10px;
@@ -88,4 +90,20 @@ body{
 .card img{
     width: 100%;
     object-fit: contain;
+}
+.play{
+    display: inline-block;
+    background-color: rgb(29, 181, 29);
+    border-radius: 50%;
+    padding: 1px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    top: 168px;
+    right: 17px;
+    opacity: 0;
+    transition: all 1s ease-out;
 }
