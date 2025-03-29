@@ -16,9 +16,7 @@ body{
 .right{
     width: 75vw;
 }
-.home{
-    
-}
+
 .home ul li{
     display: flex;
     gap: 15px;
