@@ -67,14 +67,13 @@ async function main() {
     //Attach an event listener to each song
     Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
         e.addEventListener("click", element => {
-            console.log(e.querySelector(".info").firstElementChild.innerHTML)
             playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
         })
 
 
     })
 
-    //Attach an event listener to play, next and previous
+    //Attach an event listener to play and pause
     play.addEventListener("click", () => {
         if (currentSong.paused) {
             currentSong.play()
@@ -129,6 +128,13 @@ async function main() {
         playMusic(songss[index + 1])
         }
     })
+
+    //Add an event to volume 
+    document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
+        console.log("Setting volume to", e.target.value, "/ 100")
+        currentSong.volume = parseInt(e.target.value) / 100
+        
+    }) 
 
 }
 
