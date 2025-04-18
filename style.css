@@ -146,6 +146,94 @@ body {
 .buttons>* {
     margin: 0 12px;
 }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgb(68 81 119 / 60%);
+  }
+  
+  /* MODAL CONTAINER */
+  .modal-content {
+    background-color: #85a3ae;
+    margin: 10% auto;
+    padding: 30px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* FORM TITLE */
+  .form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+  }
+  
+  /* FORM GROUP */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #749947;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #1c1616;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  /* SUBMIT BUTTON */
+  .submit-btn {
+    display: flex;
+    width: 20%;
+    align-items: center;
+    padding: 10px;
+    background-color: #070808;
+    color: rgb(161, 148, 148);
+    border: none;
+    border-radius: 90px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background-color: #151a23;
+  }
+  
+  /* CLOSE BUTTON */
+  .close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #181111;
+    transition: color 0.2s;
+  }
+  
+  .close:hover {
+    color: #333;
+  }
+  
+  /* ANIMATION */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
 
 .signupbtn {
     background-color: rgb(34, 34, 34);

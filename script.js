@@ -186,6 +186,21 @@ async function main() {
         })
     })
 
+     // Handle login submission
+  loginForm.onsubmit = (e) => {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (username === 'admin' && password === '12345') {
+      alert('Login successful!');
+      loginModal.style.display = 'none';
+    } else {
+      alert('Incorrect username or password.');
+    }
+  }
+
+
 }
 
 main()
