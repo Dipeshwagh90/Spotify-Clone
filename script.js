@@ -76,10 +76,29 @@ async function displayAlbums(params) {
     let div = document.createElement("div")
     div.innerHTML = response;
     let anchors= div.getElementsByTagName("a")
-    Array.from(anchors).forEach (e=>{
+    let cardContainer = document.querySelector(".cardContainer")
+    Array.from(anchors).forEach (async e=>{
         if(e.href.includes("/songss"))
         {
-            console.log(e.href.split("/").slice(-2)[0])
+            let folder=e.href.split("/").slice(-2)[0]
+            //get metadata
+            let a = await fetch(`http://127.0.0.1:5500/songss/${folder}/info.json`)
+
+            let response = await a.json();
+            console.log(response)
+            cardContainer.innerHTML=cardContainer.innerHTML + `<div data-folder="cs" class="card ">
+                        <div data class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 384 512"
+                                style="fill: white;">
+                            
+                             <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                            </svg>
+                        </div>
+                        
+                        <img src="/songss/${folder}/cover.jpg" alt="">
+                        <h2>${response.title}</h2>
+                        <p>${response.description}</p>
+                    </div>`;
         }
     })
 
@@ -162,6 +181,7 @@ async function main() {
     Array.from(document.getElementsByClassName("card")).forEach(e=> {
         e.addEventListener("click", async item =>{
             songss = await getSongs(`songss/${item.currentTarget.dataset.folder}`)
+            playMusic(songss[0])
             
         })
     })
