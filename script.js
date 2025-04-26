@@ -11,7 +11,7 @@ function secondsToMinutesSeconds(seconds) {
 
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = Math.floor(seconds % 60);
-
+                                                    
     const formattedMinutes = String(minutes).padStart(2, '0');
     const formattedSeconds = String(remainingSeconds).padStart(2, '0');
 
@@ -32,7 +32,7 @@ async function getSongs(folder) {
             songss.push(element.href.split(`/${folder}/`)[1])
         }
     }
-
+    // play the 
 
     //show all the songs in the playlist
     let songUL = document.querySelector(".songlist").getElementsByTagName("ul")[0]
@@ -57,6 +57,7 @@ async function getSongs(folder) {
 
 
     })
+    return songss
 }
 
 const playMusic = (track, pause = false) => {
@@ -187,18 +188,92 @@ async function main() {
     })
 
      // Handle login submission
-  loginForm.onsubmit = (e) => {
-    e.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+// Elements
+const loginBtn = document.querySelector('.loginbtn');
+const loginModal = document.getElementById('loginModal');
+const closeBtn = document.querySelector('.close');
+const loginForm = document.getElementById('loginForm');
 
-    if (username === 'admin' && password === '12345') {
-      alert('Login successful!');
-      loginModal.style.display = 'none';
-    } else {
-      alert('Incorrect username or password.');
-    }
+// Open modal
+loginBtn.onclick = () => {
+  loginModal.style.display = 'block';
+};
+
+// Close modal
+closeBtn.onclick = () => {
+  loginModal.style.display = 'none';
+};
+
+// Close modal when clicking outside
+window.onclick = (event) => {
+  if (event.target === loginModal) {
+    loginModal.style.display = 'none';
   }
+};
+
+// Login form submission
+loginForm.onsubmit = (e) => {
+  e.preventDefault();
+
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value;
+
+  // Set your desired login credentials here
+  const validUsername = 'admin';
+  const validPassword = '12345';
+
+  if (username === validUsername && password === validPassword) {
+    alert('Login successful!');
+    loginModal.style.display = 'none';
+    loginForm.reset();
+  } else {
+    alert('Incorrect username or password.');
+  }
+};
+
+
+
+
+
+const suggestions = [
+    "Pop Music",
+    "Rock",
+    "Jazz",
+    "Classical",
+    "Hip Hop",
+    "Podcast"
+  ];
+  
+  function showSuggestions(value) {
+    const box = document.getElementById("suggestions-box");
+    box.innerHTML = "";
+    if (value.trim() === "") {
+      box.style.display = "none";
+      return;
+    }
+    
+    const filtered = suggestions.filter(item => item.toLowerCase().includes(value.toLowerCase()));
+    
+    if (filtered.length === 0) {
+      box.style.display = "none";
+      return;
+    }  
+    
+    filtered.forEach(suggestion => {
+      const div = document.createElement("div");
+      div.className = "suggestion-item";
+      div.textContent = suggestion;
+      div.onclick = () => {
+        document.querySelector(".search-input").value = suggestion;
+        box.style.display = "none";
+      };
+      box.appendChild(div);
+    });
+    
+    box.style.display = "block";
+  }
+  
+
 
 
 }

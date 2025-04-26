@@ -20,8 +20,20 @@
             <div class="home bg-grey rounded m-1 p-1">
                 <div class="logo"><img width="40" class="invert" src="img/logo.svg" alt=""></div>
                 <ul>
-                    <li> <img class="invert" src="img/home.svg" alt="">Home</li>
-                    <li> <img class="invert" src="img/search.svg" alt="">Search</li>
+                    <li> <img class="invert" src="img/home.svg" alt="" onclick="window.location='index.html'">Home</li> 
+                
+                    <li class="search-container">
+                        <img class="invert" src="img/search.svg" alt="Search Icon">
+                        
+                        <div class="search-container">
+                            <input type="text" class="search-input" placeholder="What do you want to listen to" oninput="showSuggestions(this.value)">
+                            <div class="suggestions-box" id="suggestions-box"></div>
+                          </div>
+                          
+                          
+
+                      </li>
+                      
                 </ul>
             </div>
             <div class="library bg-grey rounded m-1 p-1">
@@ -74,36 +86,72 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <button class="signupbtn">Sign up</button>
-               
-                    <button class="loginbtn">Log in</button>
-                    <div id="loginModal" class="modal">
-                        <div class="modal-content">
-                          <span class="close">&times;</span>
-                          <form id="loginForm">
-                            <h2 class="form-title">Log-In Here</h2>
-                      
-                            <div class="form-group">
-                              <label for="username">Username</label>
-                              <input type="text" id="username" placeholder="Enter your username" required>
-                            </div>
-                      
-                            <div class="form-group">
-                              <label for="password">Password</label>
-                              <input type="password" id="password" placeholder="Enter your password" required>
-                            </div>
-                      
-                            <button type="submit" class="submit-btn">Login</button>
-                          </form>
-                        </div>
-                      </div>
+                   
+        <!-- Trigger Buttons -->
+<button class="signupbtn" onclick="document.getElementById('signupModal').style.display='block'">New User</button>
+<button class="loginbtn" onclick="document.getElementById('loginModal').style.display='block'">Log in</button>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('loginModal').style.display='none'">&times;</span>
+    <form id="loginForm">
+      <h2 class="form-title">Log-In Here</h2>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit" class="submit-btn">Login</button>
+    </form>
+  </div>
+</div>
+
+<!-- Sign Up Modal -->
+<div id="signupModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('signupModal').style.display='none'">&times;</span>
+    <form id="signupForm">
+      <h2 class="form-title">Create Account</h2>
+
+      <div class="form-group">
+        <label for="new-username">Username</label>
+        <input type="text" id="new-username" placeholder="Enter your username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="new-email">Email</label>
+        <input type="email" id="new-email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="new-password">Password</label>
+        <input type="password" id="new-password" placeholder="Create a password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="new-password">Re-Enter</label>
+        <input type="password" id="new-password" placeholder="Confirm the password" required>
+      </div>
+
+      <button type="submit" class="submit-btn">Sign Up</button>
+    </form>
+  </div>
+</div>
+
                       
                 </div>
             </div>
             <div class="spotifyplaylist">
                 <h1>Spotify Playlist</h1>
                 <div class="cardContainer">
-                    <div data-folder="cs" class="card ">
+                    <div data-folder="ranzaa" class="card ">
                         <div data class="play">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 384 512"
                                 style="fill: white;">
@@ -116,7 +164,7 @@
                         <h2>Raanjhan (From "Do Patti")</h2>
                         <p>Sachet-Parampara From "Do Patti" </p>
                      </div>
-                     <div data-folder="ncs" class="card ">
+                     <div data-folder="tum" class="card ">
                         <div class="play">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 384 512"
                                 style="fill: white;">
@@ -124,11 +172,11 @@
                                     d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                             </svg>
                         </div>
-                        <img src="https://i.scdn.co/image/ab67616d00001e024e081a1db1702e9019d40a3b" alt="">
-                        <h2>2 Khatole</h2>
-                        <p>Masoom Sharma Manjeet Mor Chahal Saab Vikash Rajana</p>
+                        <img src="https://i.scdn.co/image/ab67616d00001e02fc02a05930a6cde09ec57678" alt="">
+                        <h2>Tum Kya Mile (From "Rocky Aur Rani Kii Prem Kahaani")</h2>
+                        <p></p>
                     </div>
-                    <div data-folder="ncs" class="card ">
+                    <div data-folder="arijit" class="card ">
                         <div class="play">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 384 512"
                                 style="fill: white;">
@@ -154,17 +202,17 @@
                         <p>With Mohammed Rafi, Kishore Kumar, Mukesh and more</p>
                     </div>
 
-                    <div data-folder="ncs" class="card ">
+                    <div data-folder="cs" class="card ">
                         <div class="play">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 384 512"
                                 style="fill: white;">
                                 <path
-                                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
+                                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
                             </svg>
                         </div>
-                        <img src="https://i.scdn.co/image/ab67616d00001e0283141000ee8ce3b893a0b425" alt="">
-                        <h2>Finding Her</h2>
-                        <p></p>
+                        <img src="https://i.scdn.co/image/ab67616d00001e0242c184f73a4734bd00ae9ff8" alt="">
+                        <h2>Shivba Raje</h2>
+                        <p> Mohit Chauhan,Mithoon</p>
                     </div>
 
                     <div data-folder="ncs" class="card ">
@@ -278,9 +326,9 @@
                                     d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                             </svg>
                         </div>
-                        <img src="https://i.scdn.co/image/ab67616d00001e02a5183fa4b99bcec1f506418d" alt="">
-                        <h2>Young G.O.A.T</h2>
-                        <p>Masoom Sharma Manjeet Mor Chahal Saab Vikash Rajana</p>
+                        <img src="https://i.scdn.co/image/ab67616d00001e02aad3f4b601ae8763b3fc4e88" alt="">
+                        <h2>Glory</h2>
+                        <p>YO YO Honey Singh</p>
                     </div>
 
                     <div data-folder="ncs" class="card ">

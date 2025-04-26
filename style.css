@@ -30,11 +30,91 @@ body {
 .home ul li {
     display: flex;
     gap: 15px;
-    width: 14px;
+    width: 19px;
     list-style: none;
     padding-top: 34px;
     font-weight: bold;
 }
+
+/* Step 2.1: Make the <li> a flex container */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    padding: 5px 10px;
+  }
+  
+  /* Step 2.2: Style the search icon */
+  .search-container img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  
+  /* Optional: Invert icon color for dark backgrounds */
+  .invert {
+    filter: invert(1);
+  }
+  
+  /* Step 2.3: Style the search input */
+  .search-input {
+    padding: 10px 10px;
+    font-size: 14px;
+    border: 1px solid #579ad4;
+    border-radius: 44px;
+    outline: none;
+    transition: border 0.3s ease;
+  }
+  
+  /* Highlight border when focused */.cardContainer
+  .search-input:focus {
+    border-color: #3498db;
+  }
+  
+
+
+
+
+
+
+  .search-container {
+    position: relative;
+    width: 300px;
+  }
+  
+  .suggestions-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    background: white;
+    z-index: 1000;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+  }
+  
+  .suggestion-item {
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .suggestion-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+
+
+
+
+
+
+
+
+
+
 
 .heading {
     display: flex;
@@ -97,14 +177,15 @@ body {
 .cardContainer {
     margin: 30px;
     display: flex;
-    gap: 10px;
+    gap: 15px;
     flex-wrap: wrap;
     overflow-y: auto;
-    max-height: 70vh;
+    max-height: 65vh;
+    
 }
 
 .card {
-    width: 173px;
+    width: 192px;
     padding: 10px;
     border-radius: 5px;
     background-color: #252525;
@@ -146,18 +227,19 @@ body {
 .buttons>* {
     margin: 0 12px;
 }
+/* MODAL BACKGROUND */
 .modal {
     display: none;
     position: fixed;
     z-index: 999;
     left: 0; top: 0;
     width: 100vw; height: 100vh;
-    background-color: rgb(68 81 119 / 60%);
+    background-color: rgba(0, 0, 0, 0.5);
   }
   
-  /* MODAL CONTAINER */
+  /* MODAL CONTENT */
   .modal-content {
-    background-color: #85a3ae;
+    background-color: #fefefe;
     margin: 10% auto;
     padding: 30px;
     width: 350px;
@@ -175,7 +257,7 @@ body {
     font-size: 24px;
   }
   
-  /* FORM GROUP */
+  /* FORM FIELDS */
   .form-group {
     margin-bottom: 15px;
   }
@@ -183,34 +265,31 @@ body {
   .form-group label {
     display: block;
     margin-bottom: 6px;
-    color: #749947;
+    color: #444;
   }
   
   .form-group input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #1c1616;
+    border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 14px;
   }
   
   /* SUBMIT BUTTON */
   .submit-btn {
-    display: flex;
-    width: 20%;
-    align-items: center;
+    width: 100%;
     padding: 10px;
-    background-color: #070808;
-    color: rgb(161, 148, 148);
+    background-color: #333;
+    color: #fff;
     border: none;
-    border-radius: 90px;
+    border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s;
   }
   
   .submit-btn:hover {
-    background-color: #151a23;
+    background-color: #555;
   }
   
   /* CLOSE BUTTON */
@@ -220,12 +299,11 @@ body {
     right: 16px;
     font-size: 24px;
     cursor: pointer;
-    color: #181111;
-    transition: color 0.2s;
+    color: #000;
   }
   
   .close:hover {
-    color: #333;
+    color: #f00;
   }
   
   /* ANIMATION */
@@ -233,6 +311,7 @@ body {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
   }
+  
   
 
 .signupbtn {
@@ -460,6 +539,7 @@ body {
     .cardContainer {
         margin: 0;
         justify-content: center;
+        gap:13px;
     }
 
     .close {
